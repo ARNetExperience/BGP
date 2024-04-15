@@ -1,0 +1,48 @@
+
+ROUTER 1 CLI
+
+Autonomous system (Internet) 100 
+
+# Lets start...it means the router is joining a special group (BGP) identified by the number 100 to talk to other routers in that group.
+>router bgp 100 
+
+# Router is being informed now!! ->Now we have to informed router which networks are connected to it network 198.123.1.0 is our one network \n For that enter "..."
+>network 198.123.1.0
+
+# Router got to known about one network which is connected to it->And our other network is 192.168.123.bjvh... \n Now again enter "..."
+>network 198.123.2.0
+
+# Router is being informed now!!... -> Now we have also to inform negihbor to router... Hey neighbor, let's talk, and my group number is 200!" This helps the routers understand how to communicate with each other.
+->It means the router is telling its neighbor with the IP address 198.123.2.2 that its group number is 200.
+->Enter "..."
+>neighbor 198.123.2.2 remote-as 200
+
+# Neighbor is informed to router ... -> One more neighbor is -> Enter "..."
+>neighbor 198.123.3.2 remote-as 200
+
+#We are done
+>exit
+
+ROUTER 2 CLI
+
+>router bgp 200
+>network 198.123.2.0
+>network 198.123.3.0
+>neighbor 198.123.2.1 remote-as 100
+
+>neighbor 198.123.1.2 remote-as 100
+
+>exit
+
+
+TODO
+
+add Wire information More
+Add Router, PC Specification, and information
+
+copy text for Router 1 and Router 2
+
+packet simulation
+
+
+

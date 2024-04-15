@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Prompt</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .console {
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: monospace;
+            background-color: #000;
+            color: #fff;
+            width: 100%;
+
+            margin: auto;
+        }
+
+        .input {
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            min-height: 200px;
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="console">
+                        <div class="output" id="output"></div>
+                        <div class="input">
+                            <input type="text" id="inputCmd" placeholder="Type your command here...">
+                            <button onclick="executeCommand()">Enter</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        // Define a state variable to keep track of the current state
+        var currentState = 0;
+
+        function executeCommand() {
+            var input = document.getElementById('inputCmd').value.trim();
+            var outputDiv = document.getElementById('output');
+
+            if (input === '') {
+                outputDiv.innerHTML += '<p>Please enter a command.</p>';
+                return;
+            }
+
+            // Check the current state
+            switch (currentState) {
+                case 0: // Initial state: expecting "router bgp 100"
+                    if (input !== 'router bgp 100') {
+                        outputDiv.innerHTML += '<p>Invalid command. Please enter "router bgp 100".</p>';
+                        return;
+                    }
+                    break;
+                case 1: // After entering "router bgp 100": expecting "network 198.123.1.0"
+                    if (input !== 'network 198.123.1.0') {
+                        outputDiv.innerHTML += '<p>Invalid command. Please enter "network 198.123.1.0".</p>';
+                        return;
+                    }
+                    break;
+                case 2: // After entering "network 198.123.1.0": expecting "network 198.123.2.0"
+                    if (input !== 'network 198.123.2.0') {
+                        outputDiv.innerHTML += '<p>Invalid command. Please enter "network 198.123.2.0".</p>';
+                        return;
+                    }
+                    break;
+                case 3: // After entering "network 198.123.2.0": expecting "neighbor 198.123.2.2 remote-as 200"
+                    if (input !== 'neighbor 198.123.2.2 remote-as 200') {
+                        outputDiv.innerHTML += '<p>Invalid command. Please enter "neighbor 198.123.2.2 remote-as 200".</p>';
+                        return;
+                    }
+                    break;
+
+
+                case 4: // After entering "network 198.123.2.0": expecting "neighbor 198.123.2.2 remote-as 200"
+                    if (input !== 'neighbor 198.123.3.2 remote-as 200') {
+                        outputDiv.innerHTML += '<p>Invalid command. Please enter "neighbor 198.123.3.2 remote-as 200".</p>';
+                        return;
+                    }
+                    break;
+
+                case 5: // After entering "network 198.123.2.0": expecting "neighbor 198.123.2.2 remote-as 200"
+                    if (input !== 'exit') {
+                        outputDiv.innerHTML += '<p>Invalid command. Please enter "exit".</p>';
+                        return;
+                    }
+                    break;
+            }
+
+            // Add your command execution logic here
+            // For demonstration, let's just echo the command
+            outputDiv.innerHTML += '<p>> ' + input + '</p>';
+
+            // Update the current state
+            currentState++;
+
+            // Clear input field after command execution
+            document.getElementById('inputCmd').value = '';
+
+            // Scroll to the bottom after a slight delay
+            setTimeout(function () {
+                var outputDiv = document.getElementById('output');
+                outputDiv.scrollTop = outputDiv.scrollHeight;
+            }, 50);
+        }
+
+
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
