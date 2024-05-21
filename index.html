@@ -210,8 +210,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center logo-wrap">
-                    <div id="fh5co-logo"><a href="https://arnetexperience.github.io/light_theme/"><img
-                                src="logo.png" alt="logo" width="20%" /><span></span></a></div>
+                    <div id="fh5co-logo"><a href="https://arnetexperience.github.io/light_theme/"><img src="logo.png"
+                                alt="logo" width="20%" /><span></span></a></div>
 
 
 
@@ -241,13 +241,13 @@
                                         <a href="https://arnetexperience.github.io/BGP/quiz.html" id="video">Quiz</a>
 
                                     </li>
-                                    
+
                                     <li class="dropdown-link">
                                         <a href="#" id="video">Video</a>
 
                                     </li>
 
-                                    
+
 
                                 </ul>
                             </div>
@@ -352,7 +352,7 @@
                         <button class="Hotspot transparent-button" style="border-radius: 100%;" slot="hotspot-7"
                             data-position="-57.48814300733627m 30.28332503405524m 73.46407912897116m"
                             data-normal="-0.006981526271955822m 0.33872976862497106m 0.940857801231508m"
-                            data-visibility-attribute="visible" data-bs-toggle="modal" data-bs-target="#Router2LANPort">
+                            data-visibility-attribute="visible" data-bs-toggle="modal" data-bs-target="#Router1LANPort">
                             <div class="HotspotAnnotation" style="font-size:8px;"><b>7</b></div>
                         </button>
 
@@ -557,9 +557,7 @@
                         </div>
                         <div class="modal-body" style="color: #000000;">
                             IP Address > 198.123.1.1<br>
-                            Click on below button to open Router 1 Command Line Interface (CLI) <br>
-                            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#OpenRouter1CLIModal">Opne CLI</button>
+
                             <img src="2.png" width="100%" height="100%">
                         </div>
                         <div class="modal-footer">
@@ -593,6 +591,9 @@
 
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" onclick="autoexecuteCommand1()"
+                                id="router1AutoCmdBtn">Auto Execute
+                                Commands</button>
                             <button type="button" class="btn btn-primary" onclick="Router1CommandListFile()">Command
                                 Reference</button>
                             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
@@ -624,6 +625,9 @@
 
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" onclick="autoexecuteCommand2()"
+                                id="router2AutoCmdBtn">Auto Execute
+                                Commands</button>
                             <button type="button" class="btn btn-primary" onclick="Router2CommandListFile()">Command
                                 Reference</button>
                             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
@@ -705,9 +709,7 @@
                         </div>
                         <div class="modal-body" style="color: #000000;">
                             IP Address > 198.123.3.1<br>
-                            Click on below button to open Router 1 Command Line Interface (CLI) <br>
-                            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#OpenRouter2CLIModal">Opne CLI</button>
+
                             <img src="2.png" width="100%" height="100%">
                         </div>
                         <div class="modal-footer">
@@ -747,7 +749,8 @@
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #000000;">Cross Giga Ethernet Cable
+                            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #000000;">Cross Giga
+                                Ethernet Cable
                             </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
@@ -861,9 +864,40 @@
                         </div>
                         <div class="modal-body" style="color: #000000;">
                             Ports for wired devices on home network without wireless capability.
+
                             <img src="7.png" width="100%" height="100%">
+                            Click on below button to open Router 2 Command Line Interface (CLI)
+
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                data-bs-target="#OpenRouter2CLIModal">Opne CLI</button>
+                            <button type="button" class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">Okay</button>
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="Router1LANPort" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #000000;">LAN Ports</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body" style="color: #000000;">
+                            Ports for wired devices on home network without wireless capability.
+                            <img src="7.png" width="100%" height="100%">
+                            Click on below button to open Router 1 Command Line Interface (CLI)
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                data-bs-target="#OpenRouter1CLIModal">Opne CLI</button>
                             <button type="button" class="btn btn-outline-secondary"
                                 data-bs-dismiss="modal">Okay</button>
                             <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
@@ -888,7 +922,7 @@
                             IP Address > 192.123.1.2
                             &ensp;
                             <i class="ri-file-copy-line btn btn-outline-danger btn-sm" onclick="copyText2()"></i>
-                            <span class="text-danger" id="copyTextMessage2"></span><br>
+                            <span class="text-danger" id="copyTextMessage2"></span>
                             Subnet Mask > 255.255.255.0<br>
                             Default Gateway > 198.123.1.1
 
@@ -919,7 +953,7 @@
                             IP Address > 192.123.3.2
                             &ensp;
                             <i class="ri-file-copy-line btn btn-outline-primary btn-sm" onclick="copyText1()"></i>
-                            <span class="text-primary" id="copyTextMessage1"></span><br>
+                            <span class="text-primary" id="copyTextMessage1"></span>
                             Subnet Mask > 255.255.255.0<br>
                             Default Gateway > 198.123.3.1
 
@@ -985,11 +1019,11 @@
                         <h4>Links</h4>
                         <ul class="fh5co-footer-links">
                             <li><a href="https://arnetexperience.github.io/light_theme/index.html">Home</a></li>
-							<li><a href="https://arnetexperience.github.io/light_theme/#fh5co-about">About</a></li>
-							<li><a href="https://arnetexperience.github.io/light_theme/learning.html">Start
-									Learning</a></li>
-							<li><a href="https://arnetexperience.github.io/light_theme/contact.html">Contact</a>
-							</li>
+                            <li><a href="https://arnetexperience.github.io/light_theme/#fh5co-about">About</a></li>
+                            <li><a href="https://arnetexperience.github.io/light_theme/learning.html">Start
+                                    Learning</a></li>
+                            <li><a href="https://arnetexperience.github.io/light_theme/contact.html">Contact</a>
+                            </li>
 
 
                         </ul>
@@ -1116,8 +1150,23 @@
                             outputDiv1.innerHTML += '<p>>Router 1 (config-router) #Invalid command. Please enter "exit".</p>';
                             return;
                         }
-                        alert("Router 1 is now know about its neighbor and network but Router 2 doesn't know about its neighbor and network so to configure Router 2 click on button '2' of router model.");
+
                         currentState3 = 1;
+                        document.getElementById("router1AutoCmdBtn").disabled = true;
+                        if (currentState4 != 1) {
+                            alert("Router 1 is now know about its neighbor and network but Router 2 doesn't know about its neighbor and network so to configure Router 2 click on button '7' of router model.");
+                        }
+
+                        if (currentState4 == 1) {
+                            alert("Now both Router 1 and Router 2 know about their networks and neighbor. So, let's send packet from one network to other network! ");
+
+                            alert("To know about IP Address click on PC-1 / PC-2 button.");
+                            alert("Click on PC1 or PC2 then click on button 'Open Command Prompt'\n\nEnter 'ping IP_Address' eg. ping 192.123.2.1");
+
+                        }
+
+
+
                         break;
                 }
 
@@ -1137,6 +1186,52 @@
                     outputDiv1.scrollTop = outputDiv1.scrollHeight;
                 }, 50);
             }
+
+            function autoexecuteCommand1() {
+                var outputDiv1 = document.getElementById('output1');
+
+                document.getElementById("router1AutoCmdBtn").disabled = true;
+
+                if (currentState1 > 0) {
+                    if (currentState1 > 0 && currentState1 < 5) {
+                        alert('Already Configuration for Router 1 is in process.');
+                    }
+                    if (currentState1 == 5) {
+                        alert('Already Configuration is done for Router 1.')
+                    }
+                    return;
+                } else {
+                    outputDiv1.innerHTML += '<p>>Router 1 (config-router) #router bgp 100</p>';
+
+                    outputDiv1.innerHTML += '<p>>Router 1 (config-router) #network 198.123.1.0</p>';
+
+                    outputDiv1.innerHTML += '<p>>Router 1 (config-router) #network 198.123.2.0</p>';
+
+                    outputDiv1.innerHTML += '<p>>Router 1 (config-router) #neighbor 198.123.2.2 remote-as 200</p>';
+
+                    outputDiv1.innerHTML += '<p>>Router 1 (config-router) #neighbor 198.123.3.2 remote-as 200</p>';
+
+                    outputDiv1.innerHTML += '<p>>Router 1 (config-router) #exit</p>';
+
+                    currentState1 = 6;
+
+                    currentState3 = 1;
+
+                    if (currentState4 != 1) {
+                        alert("Router 1 is now know about its neighbor and network but Router 2 doesn't know about its neighbor and network so to configure Router 2 click on button '7' of router model.");
+                    }
+
+                    if (currentState4 == 1) {
+                        alert("Now both Router 1 and Router 2 know about their networks and neighbor. So, let's send packet from one network to other network! ");
+
+                        alert("To know about IP Address click on PC-1 / PC-2 button.");
+                        alert("Click on PC1 or PC2 then click on button 'Open Command Prompt'\n\nEnter 'ping IP_Address' eg. ping 192.123.2.1");
+
+                    }
+                }
+
+            }
+
 
 
             function executeCommand2() {
@@ -1201,10 +1296,24 @@
                             outputDiv2.innerHTML += '<p>>Router 2 (config-router) #Invalid command. Please enter "exit".</p>';
                             return;
                         }
-                        alert("Now both Router 1 and Router 2 know about their networks and neighbor. So, let's send packet from one network to other network! ");
-                        alert("To know about IP Address click on PC-1 / PC-2 / Router's button number '2'.");
-                        alert("Click on PC1 or PC2 then click on button 'Open Command Prompt'\n\nEnter 'ping IP_Address' eg. ping 192.123.2.1");
+
+
                         currentState4 = 1;
+                        document.getElementById("router2AutoCmdBtn").disabled = true;
+
+                        if (currentState3 != 1) {
+                            alert("Router 2 is now know about its neighbor and network but Router 1 doesn't know about its neighbor and network so to configure Router 1 click on button '7' of router model.");
+                        }
+
+
+                        if (currentState3 == 1) {
+                            alert("Now both Router 1 and Router 2 know about their networks and neighbor. So, let's send packet from one network to other network! ");
+
+                            alert("To know about IP Address click on PC-1 / PC-2 button.");
+                            alert("Click on PC1 or PC2 then click on button 'Open Command Prompt'\n\nEnter 'ping IP_Address' eg. ping 192.123.2.1");
+
+                        }
+
                         break;
                 }
 
@@ -1223,6 +1332,55 @@
                     var outputDiv2 = document.getElementById('output2');
                     outputDiv2.scrollTop = outputDiv2.scrollHeight;
                 }, 50);
+            }
+
+            function autoexecuteCommand2() {
+                var outputDiv2 = document.getElementById('output2');
+                document.getElementById("router2AutoCmdBtn").disabled = true;
+
+                if (currentState2 > 0) {
+                    if (currentState2 > 0 && currentState2 < 5) {
+                        alert('Already Configuration for Router 2 is in process.');
+                    }
+                    if (currentState2 == 5) {
+                        alert('Already Configuration is done for Router 2.')
+                    }
+                    return;
+                } else {
+
+                    outputDiv2.innerHTML += '<p>>Router 2 (config-router) #router bgp 200</p>';
+
+                    outputDiv2.innerHTML += '<p>>Router 2 (config-router) #network 198.123.2.0</p>';
+
+                    outputDiv2.innerHTML += '<p>>Router 2 (config-router) #network 198.123.3.0</p>';
+
+                    outputDiv2.innerHTML += '<p>>Router 2 (config-router) #neighbor 198.123.2.1 remote-as 100</p>';
+
+                    outputDiv2.innerHTML += '<p>>Router 2 (config-router) #neighbor 198.123.1.2 remote-as 100</p>';
+
+                    outputDiv2.innerHTML += '<p>>Router 2 (config-router) #exit</p>';
+
+                    currentState2 = 6;
+
+
+                    currentState4 = 1;
+
+                    if (currentState3 != 1) {
+                        alert("Router 2 is now know about its neighbor and network but Router 1 doesn't know about its neighbor and network so to configure Router 1 click on button '7' of router model.");
+                    }
+
+
+                    if (currentState3 == 1) {
+                        alert("Now both Router 1 and Router 2 know about their networks and neighbor. So, let's send packet from one network to other network! ");
+
+                        alert("To know about IP Address click on PC-1 / PC-2 button.");
+                        alert("Click on PC1 or PC2 then click on button 'Open Command Prompt'\n\nEnter 'ping IP_Address' eg. ping 192.123.2.1");
+
+                    }
+
+                }
+
+
             }
 
 
@@ -1251,7 +1409,7 @@
                         return;
                     }
                 } else {
-                    outputDiv3.innerHTML += '<p>>PC 1 #Please configure Router 1 and Router 2 by clicking on button number "2" of routers then only you can send ping from one network to other network.</p>';
+                    outputDiv3.innerHTML += '<p>>PC 1 #Please configure Router 1 and Router 2 by clicking on button number "7" of routers then only you can send ping from one network to other network.</p>';
                     return;
                 }
 
@@ -1291,12 +1449,12 @@
 
                     } else {
                         //start here animation of PC-1 to PC2
-                        outputDiv4.innerHTML += '<p>>PC 2 #Please enter valid command. Enter "ping 192.123.1.2" to ping PC-2.</p>';
+                        outputDiv4.innerHTML += '<p>>PC 2 #Please enter valid command. Enter "ping 192.123.1.2" to ping PC-1.</p>';
 
                         return;
                     }
                 } else {
-                    outputDiv4.innerHTML += '<p>>PC 1 #Please configure Router 1 and Router 2 by clicking on button number "2" of routers then only you can send ping from one network to other network.</p>';
+                    outputDiv4.innerHTML += '<p>>PC 1 #Please configure Router 1 and Router 2 by clicking on button number "7" of routers then only you can send ping from one network to other network.</p>';
                     return;
                 }
 
@@ -1348,7 +1506,7 @@
 
             window.onload = function () {
                 setTimeout(function () {
-                    alert("Now, to perform BGP we need to first configure both router so they know about the network connected to them\n\nTo configure Router 1 and Router 2 click on router's button number '2' then click 'open CLI' button.");
+                    alert("Now, to perform BGP we need to first configure both router so they know about the network connected to them\n\nTo configure Router 1 and Router 2 click on router's button number '7' then click 'open CLI' button.");
                 }, 5000);
             };
 
