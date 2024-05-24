@@ -243,7 +243,7 @@
                                     </li>
 
                                     <li class="dropdown-link">
-                                        <a href="#" id="video">Video</a>
+                                        <a href="https://drive.google.com/file/d/1MG_4yFWQ7J56_AHXpnhYR2uJCm0e3N5O/view?usp=drive_link" id="video">Video</a>
 
                                     </li>
 
@@ -1000,6 +1000,49 @@
 
             </div>
 
+
+               <!-- Modal -->
+               <div class="modal fade" id="PC1toPC2Packet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #000000;">PDU & OSI
+                                Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="PC1 to PC2 bgp/1.png" alt="1" id="current-image">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Okay</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="PC2toPC1Packet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #000000;">PDU & OSI
+                                Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="PC2 to PC1/1.png" alt="1" id="current-image2">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Okay</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
         <footer id="fh5co-footer" role="contentinfo" class="fh5co-section">
@@ -1080,6 +1123,38 @@
 
 
         <script>
+
+            // JavaScript for changing images
+            document.addEventListener("DOMContentLoaded", function () {
+                let currentIndex = 1; // Index of the current image
+                const totalImages = 48; // Total number of images
+                const imageElement = document.getElementById('current-image');
+
+                function changeImage() {
+                    currentIndex = (currentIndex % totalImages) + 1;
+                    imageElement.src = `PC1 to PC2 bgp/${currentIndex}.png`; // Update image src
+                    imageElement.alt = `${currentIndex}`; // Update image alt
+                }
+
+                // Change image every 3 seconds
+                setInterval(changeImage, 3000);
+            });
+
+            // JavaScript for changing images
+            document.addEventListener("DOMContentLoaded", function () {
+                let currentIndex = 1; // Index of the current image
+                const totalImages = 48; // Total number of images
+                const imageElement = document.getElementById('current-image2');
+
+                function changeImage() {
+                    currentIndex = (currentIndex % totalImages) + 1;
+                    imageElement.src = `PC2 to PC1/${currentIndex}.png`; // Update image src
+                    imageElement.alt = `${currentIndex}`; // Update image alt
+                }
+
+                // Change image every 3 seconds
+                setInterval(changeImage, 3000);
+            });
 
 
             // Define a state variable to keep track of the current state
