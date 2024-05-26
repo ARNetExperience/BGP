@@ -243,7 +243,8 @@
                                     </li>
 
                                     <li class="dropdown-link">
-                                        <a href="https://drive.google.com/file/d/1MG_4yFWQ7J56_AHXpnhYR2uJCm0e3N5O/view?usp=drive_link" id="video">Video</a>
+                                        <a href="https://drive.google.com/file/d/1MG_4yFWQ7J56_AHXpnhYR2uJCm0e3N5O/view?usp=drive_link"
+                                            id="video">Video</a>
 
                                     </li>
 
@@ -1001,8 +1002,9 @@
             </div>
 
 
-               <!-- Modal -->
-               <div class="modal fade" id="PC1toPC2Packet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- Modal -->
+            <div class="modal fade" id="PC1toPC2Packet" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1022,7 +1024,8 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="PC2toPC1Packet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="PC2toPC1Packet" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1472,7 +1475,15 @@
                         return;
                     } else if (input3 === 'ping 192.123.3.2') {
                         //start here animation of PC-1 to PC2
-                        outputDiv3.innerHTML += '<p>>PC 1 #Pinging 192.123.3.2 with 32 bytes of data...</p>';
+                        outputDiv3.innerHTML += '<p>>ping 192.123.3.2</p>';
+                        outputDiv3.innerHTML += '<p>Pinging 192.123.3.2 with 32 bytes of data:<br></p>';
+
+                        outputDiv3.innerHTML += '<p>Reply from 192.123.3.2: bytes=32 time=1ms TTL=127<br>Reply from 192.123.3.2: bytes=32 time<1ms TTL=127<br>Reply from 192.123.3.2: bytes=32 time=1ms TTL=127<br>Reply from 192.123.3.2: bytes=32 time<1ms TTL=127</p>';
+
+                        outputDiv3.innerHTML += '<p>Ping statistics for 192.123.3.2:<br>&ensp;Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),<br>Approximate round trip times in milli-seconds:<br>Minimum = 0ms, Maximum = 1ms, Average = 0ms</p>';
+
+
+
                         alert("Close this window to see how the packet flow from one network to other network using BGP.")
                         PC1TOPC2();
                         return;
@@ -1517,7 +1528,12 @@
                         return;
                     } else if (input4 === 'ping 192.123.1.2') {
                         //start here animation of PC-1 to PC2
-                        outputDiv4.innerHTML += '<p>>PC 2 #Pinging 192.124.4.2 with 32 bytes of data...</p>';
+                        outputDiv4.innerHTML += '<p>>ping 192.123.1.2</p>';
+                        outputDiv4.innerHTML += '<p>Pinging 192.123.1.2 with 32 bytes of data:<br></p>';
+
+                        outputDiv4.innerHTML += '<p>Reply from 192.123.1.2: bytes=32 time=1ms TTL=127<br>Reply from 192.123.1.2: bytes=32 time<1ms TTL=127<br>Reply from 192.123.1.2: bytes=32 time=1ms TTL=127<br>Reply from 192.123.1.2: bytes=32 time<1ms TTL=127</p>';
+
+                        outputDiv4.innerHTML += '<p>Ping statistics for 192.123.1.2:<br>&ensp;Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),<br>Approximate round trip times in milli-seconds:<br>Minimum = 0ms, Maximum = 1ms, Average = 0ms</p>';
                         alert("Close this window to see how the packet flow from one network to other networking using BGP.")
                         PC2TOPC1();
                         return;
